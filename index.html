@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SW#2</title>
+
+    <style>
+        body {
+            background-image: url(https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEindEiSzRVjyLuKD-c-LCHftaNGw661EQ79Y9GaiTXbECfGwwBG5IGzGUj74OaTI4I-4iS_-wn5SZHmrbMCMMADGDFGaz41pkWAFN4YqBFXgs_Wxz4_Jd2hx9D094ymw2j515UybCJ8HhsM/w1600/galaxy-desktop-wallpaper-HD.png);
+            margin: 0;
+            padding: 0;
+            font-size: 25px;
+            color: white;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .left-side {
+            flex: 2;
+            text-align: center;
+        }
+
+        .right-side {
+            flex: 3;
+        }
+
+        .calculator-box {
+            border: 2px dashed white;
+            background-color: darkslategray;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            text-align: center; 
+        }
+
+        .buttons-row {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px; 
+        }
+
+        .buttons button {
+            margin: 3px;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border: 3px solid slategray;
+            border-radius: 5px;
+            background-color: dimgrey;
+            color: white;
+        }
+
+        .buttons button:hover {
+            background-color: #555;
+        }
+
+        .buttons button:active {
+            background-color: #333;
+        }
+
+        .buttons {
+            max-width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-side">
+            <img src="https://mystickermania.com/cdn/stickers/noob-pack/sanrio-pochi-badtz-maru-friends-512x512.png" alt="Calculator">
+        </div>
+
+        <div class="right-side">
+            <div class="calculator-box">
+                <p>Come on give my calculator a try 😼.</p>
+                <p>Given:</p>
+                <p>Enter a value for x:</p>
+                <input type="number" id="inputX">
+                <p>Enter a value for y:</p>
+                <input type="number" id="inputY">
+            </div>
+
+            <div class="buttons">
+                <div class="buttons-row">
+                    <button onclick="calculate('product')">Product of x and y</button>
+                    <button onclick="calculate('raised')">x raised to y</button>
+                    <button onclick="calculate('remainder')">Get the remainder</button>
+                    <button onclick="calculate('equal')">Check if x is equal to y</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function calculate(operation) {
+            var x = parseFloat(document.getElementById('inputX').value);
+            var y = parseFloat(document.getElementById('inputY').value);
+            var result;
+
+            switch (operation) {
+                case 'product':
+                    result = x * y;
+                    break;
+                case 'raised':
+                    result = Math.pow(x, y);
+                    break;
+                case 'remainder':
+                    result = x % y;
+                    break;
+                case 'equal':
+                    result = x === y;
+                    break;
+                default:
+                    result = 'Invalid operation';
+            }
+
+            alert('Result: ' + result);
+        }
+    </script>
+</body>
+</html>
